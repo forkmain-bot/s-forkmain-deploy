@@ -1,37 +1,37 @@
 s:
   env:
-  - name: ENV_NAME
-    value: main
-  - name: ENV_DOMAIN
-    value: s-27cdsx.forkmain.cloud
+    - name: ENV_NAME
+      value: main
+    - name: ENV_DOMAIN
+      value: s-27cdsx.forkmain.cloud
   fullnameOverride: s
   image:
     repository: ghcr.io/forkmain-bot/s
-    tag: latest
+    tag: a59510d
   imagePullSecrets:
-  - name: s-docker
+    - name: s-docker
   ingress:
     className: nginx
     enabled: true
     hosts:
-    - host: s-27cdsx.forkmain.cloud
-      paths:
-      - path: /
-        pathType: ImplementationSpecific
+      - host: s-27cdsx.forkmain.cloud
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
   nocalhost:
     command:
       debug:
-      - yarn
-      - install
-      - '&&'
-      - yarn
-      - dev
+        - yarn
+        - install
+        - '&&'
+        - yarn
+        - dev
       run:
-      - yarn
-      - install
-      - '&&'
-      - yarn
-      - dev
+        - yarn
+        - install
+        - '&&'
+        - yarn
+        - dev
     configPath: conf/nocalhost.yaml
     env: null
     gitURL: https://github.com/forkmain-bot/s.git
@@ -40,8 +40,8 @@ s:
     language: javascript
     patches: null
     persistentVolumeDirs:
-    - capacity: 20Gi
-      path: /home/nocalhost-dev
+      - capacity: 20Gi
+        path: /home/nocalhost-dev
     remoteDebugPort: 9009
   service:
     port: 3000
